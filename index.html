@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Peer Power Project - Empowering Students. Enriching Communities.</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -17,34 +17,31 @@
             </div>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
+                    <a href="index.html" class="nav-link active">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#about" class="nav-link">About Us</a>
+                    <a href="about.html" class="nav-link">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#team" class="nav-link">Our Team</a>
+                    <a href="team.html" class="nav-link">Our Team</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#programs" class="nav-link">What We Do</a>
+                    <a href="programs.html" class="nav-link">What We Do</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#involve" class="nav-link">Get Involved</a>
+                    <a href="events.html" class="nav-link">Events</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#events" class="nav-link">Events</a>
+                    <a href="impact.html" class="nav-link">Impact</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#impact" class="nav-link">Impact</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#gallery" class="nav-link">Gallery</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#blog" class="nav-link">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
                 </li>
             </ul>
             <div class="hamburger">
@@ -55,139 +52,40 @@
         </div>
     </nav>
 
-    <!-- Home Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="hero-content">
+            <div class="container">
                 <h1 class="hero-title">The Peer Power Project</h1>
                 <p class="hero-subtitle">Empowering Students. Enriching Communities.</p>
                 <p class="hero-mission">
                     The Peer Power Project empowers students through personalized tutoring, inspiring educational events, and community-driven charity initiatives. We believe in the power of peers to uplift one another—academically, socially, and compassionately.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#involve" class="btn btn-primary">Join Us</a>
-                    <a href="#contact" class="btn btn-secondary">Donate</a>
-                    <a href="#events" class="btn btn-outline">Attend Events</a>
+                    <a href="contact.html" class="btn btn-primary">Join Us</a>
+                    <a href="contact.html" class="btn btn-secondary">Donate</a>
+                    <a href="events.html" class="btn btn-outline">Attend Events</a>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="hero-placeholder">
-                    <i class="fas fa-users"></i>
-                    <p>Community Impact</p>
-                </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="scroll-indicator">
+                <span>Scroll to explore</span>
+                <i class="fas fa-chevron-down"></i>
             </div>
         </div>
     </section>
 
-    <!-- About Us Section -->
-    <section id="about" class="about">
+    <!-- Featured Programs -->
+    <section class="featured-programs">
         <div class="container">
-            <h2 class="section-title">About Us</h2>
-            
-            <div class="about-content">
-                <div class="about-story">
-                    <h3>Our Story</h3>
-                    <p>The Peer Power Project began with seeing gaps in our communities—students who needed academic support and families without access to learning resources. Rather than wait for someone else to step in, we chose to take action.</p>
-                    <p>We've run initiatives like organizing book drives, writing holiday cards for seniors, and hosting free educational events. With every project, we discovered that the strongest support often comes from peers—those who understand and care.</p>
-                    <p>Today, The Peer Power Project continues to be led by students passionate about making a difference. Whether through tutoring, community outreach, or educational events, we strive to create a world where no one feels left behind.</p>
-                </div>
-                
-                <div class="about-values">
-                    <div class="value-card">
-                        <i class="fas fa-eye"></i>
-                        <h4>Vision</h4>
-                        <p>To create a world where every student has access to quality education and support, fostering a community of empowered learners.</p>
-                    </div>
-                    <div class="value-card">
-                        <i class="fas fa-bullseye"></i>
-                        <h4>Mission</h4>
-                        <p>Empower students through personalized tutoring, inspiring educational events, and community-driven charity initiatives.</p>
-                    </div>
-                    <div class="value-card">
-                        <i class="fas fa-heart"></i>
-                        <h4>Values</h4>
-                        <ul>
-                            <li>Peer Support & Collaboration</li>
-                            <li>Educational Excellence</li>
-                            <li>Community Service</li>
-                            <li>Compassion & Empathy</li>
-                            <li>Student Leadership</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="section-header">
+                <h2 class="section-title">Our Programs</h2>
+                <p class="section-subtitle">Comprehensive initiatives designed to empower students and enrich communities</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team" class="team">
-        <div class="container">
-            <h2 class="section-title">Our Team</h2>
-            <p class="section-subtitle">Meet the passionate students driving change in our community</p>
-            
-            <div class="team-grid">
-                <div class="team-category">
-                    <h3>Executives</h3>
-                    <div class="team-cards">
-                        <div class="team-card">
-                            <div class="team-photo">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <h4>Executive Director</h4>
-                            <p>Leading our mission with passion and dedication</p>
-                        </div>
-                        <div class="team-card">
-                            <div class="team-photo">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <h4>Program Coordinator</h4>
-                            <p>Organizing impactful educational initiatives</p>
-                        </div>
-                        <div class="team-card">
-                            <div class="team-photo">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <h4>Outreach Manager</h4>
-                            <p>Building community partnerships and connections</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="team-category">
-                    <h3>Volunteers</h3>
-                    <div class="team-cards">
-                        <div class="team-card">
-                            <div class="team-photo">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <h4>Tutoring Volunteers</h4>
-                            <p>Dedicated high school students providing academic support</p>
-                        </div>
-                        <div class="team-card">
-                            <div class="team-photo">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <h4>Event Volunteers</h4>
-                            <p>Helping organize and run community events</p>
-                        </div>
-                        <div class="team-card">
-                            <div class="team-photo">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <h4>Blog Contributors</h4>
-                            <p>Creating educational content for students</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Programs Section -->
-    <section id="programs" class="programs">
-        <div class="container">
-            <h2 class="section-title">What We Do</h2>
-            <p class="section-subtitle">Our comprehensive programs designed to empower students and enrich communities</p>
             
             <div class="programs-grid">
                 <div class="program-card">
@@ -196,7 +94,7 @@
                     </div>
                     <h3>Tutoring Services</h3>
                     <p>Free tutoring from high school volunteers for students JK–Grade 8. Personalized one-on-one support to help students excel academically.</p>
-                    <a href="#involve" class="program-link">Learn More</a>
+                    <a href="programs.html" class="program-link">Learn More</a>
                 </div>
                 
                 <div class="program-card">
@@ -205,7 +103,7 @@
                     </div>
                     <h3>Educational Blogs</h3>
                     <p>Written for high schoolers on academics, mental health, and success tips. Valuable resources to support student growth and well-being.</p>
-                    <a href="#blog" class="program-link">Read Blogs</a>
+                    <a href="blog.html" class="program-link">Read Blogs</a>
                 </div>
                 
                 <div class="program-card">
@@ -214,351 +112,52 @@
                     </div>
                     <h3>Community Initiatives</h3>
                     <p>From book drives to holiday card campaigns, we organize meaningful community service projects that make a real difference.</p>
-                    <a href="#impact" class="program-link">See Impact</a>
-                </div>
-            </div>
-            
-            <div class="initiatives-grid">
-                <h3>Recent Initiatives</h3>
-                <div class="initiative-cards">
-                    <div class="initiative-card">
-                        <div class="initiative-number">70</div>
-                        <h4>Books Donated</h4>
-                        <p>Successfully organized a book drive to provide reading materials for local children</p>
-                    </div>
-                    <div class="initiative-card">
-                        <div class="initiative-number">120</div>
-                        <h4>Christmas Cards</h4>
-                        <p>Collected and delivered holiday cards to seniors in our community</p>
-                    </div>
-                    <div class="initiative-card">
-                        <div class="initiative-number">1</div>
-                        <h4>Harvard Event</h4>
-                        <p>Hosted Harvard Online Highschooler event to inspire academic excellence</p>
-                    </div>
+                    <a href="impact.html" class="program-link">See Impact</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Get Involved Section -->
-    <section id="involve" class="involve">
+    <!-- Impact Preview -->
+    <section class="impact-preview">
         <div class="container">
-            <h2 class="section-title">Get Involved</h2>
-            <p class="section-subtitle">Join our mission to empower students and enrich communities</p>
-            
-            <div class="involve-grid">
-                <div class="involve-card">
-                    <div class="involve-icon">
-                        <i class="fas fa-hand-holding-heart"></i>
-                    </div>
-                    <h3>Volunteer With Us</h3>
-                    <p>We're always looking for passionate high school students to join our team. Whether you're interested in tutoring, marketing, or blog writing, we have opportunities for you.</p>
-                    <div class="involve-steps">
-                        <h4>How to Apply:</h4>
-                        <ol>
-                            <li>Email us at <strong>thepeerpowerproject@gmail.com</strong></li>
-                            <li>Include your resume and areas of interest</li>
-                            <li>Specify your preferred role (tutoring, marketing, blog/news)</li>
-                        </ol>
-                    </div>
-                    <a href="mailto:thepeerpowerproject@gmail.com" class="btn btn-primary">Apply Now</a>
-                </div>
-                
-                <div class="involve-card">
-                    <div class="involve-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Get Tutoring</h3>
-                    <p>Are you a student or parent looking for free, personalized tutoring? Our high school volunteers are here to help students from JK to Grade 8.</p>
-                    <div class="involve-steps">
-                        <h4>How to Get Started:</h4>
-                        <ol>
-                            <li>Email us at <strong>thepeerpowerproject@gmail.com</strong></li>
-                            <li>Let us know your grade level and subjects</li>
-                            <li>We'll match you with a qualified tutor</li>
-                        </ol>
-                    </div>
-                    <a href="mailto:thepeerpowerproject@gmail.com" class="btn btn-secondary">Request Tutoring</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Events Section -->
-    <section id="events" class="events">
-        <div class="container">
-            <h2 class="section-title">Upcoming Events</h2>
-            <p class="section-subtitle">Join us for inspiring educational events and community initiatives</p>
-            
-            <div class="events-grid">
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="event-day">15</span>
-                        <span class="event-month">Dec</span>
-                    </div>
-                    <div class="event-content">
-                        <h3>Winter Tutoring Session</h3>
-                        <p class="event-time"><i class="fas fa-clock"></i> 3:00 PM - 5:00 PM</p>
-                        <p class="event-location"><i class="fas fa-map-marker-alt"></i> Virtual Session</p>
-                        <p>Join us for our winter tutoring session where students can get help with their studies from our dedicated volunteers.</p>
-                        <a href="#contact" class="event-link">Register Now</a>
-                    </div>
-                </div>
-                
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="event-day">20</span>
-                        <span class="event-month">Dec</span>
-                    </div>
-                    <div class="event-content">
-                        <h3>Holiday Community Service</h3>
-                        <p class="event-time"><i class="fas fa-clock"></i> 2:00 PM - 4:00 PM</p>
-                        <p class="event-location"><i class="fas fa-map-marker-alt"></i> Local Community Center</p>
-                        <p>Help us spread holiday cheer by participating in our community service event for seniors.</p>
-                        <a href="#contact" class="event-link">Join Us</a>
-                    </div>
-                </div>
-                
-                <div class="event-card">
-                    <div class="event-date">
-                        <span class="event-day">10</span>
-                        <span class="event-month">Jan</span>
-                    </div>
-                    <div class="event-content">
-                        <h3>New Year Academic Workshop</h3>
-                        <p class="event-time"><i class="fas fa-clock"></i> 1:00 PM - 3:00 PM</p>
-                        <p class="event-location"><i class="fas fa-map-marker-alt"></i> Virtual Workshop</p>
-                        <p>Start the new year strong with our academic workshop focused on study skills and goal setting.</p>
-                        <a href="#contact" class="event-link">Register Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Impact Section -->
-    <section id="impact" class="impact">
-        <div class="container">
-            <h2 class="section-title">Our Impact</h2>
-            <p class="section-subtitle">Making a difference in our community, one student at a time</p>
-            
             <div class="impact-stats">
-                <div class="stat-card">
-                    <div class="stat-number">120</div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="120">0</div>
                     <div class="stat-label">Christmas Cards</div>
-                    <div class="stat-description">Collected and delivered to seniors</div>
+                    <div class="stat-description">Delivered to seniors</div>
                 </div>
                 
-                <div class="stat-card">
-                    <div class="stat-number">70</div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="70">0</div>
                     <div class="stat-label">Books Donated</div>
-                    <div class="stat-description">To local children in need</div>
+                    <div class="stat-description">To local children</div>
                 </div>
                 
-                <div class="stat-card">
-                    <div class="stat-number">1</div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="1">0</div>
                     <div class="stat-label">Harvard Event</div>
-                    <div class="stat-description">Hosted for high school students</div>
+                    <div class="stat-description">Successfully hosted</div>
                 </div>
                 
-                <div class="stat-card">
-                    <div class="stat-number">50+</div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="50">0</div>
                     <div class="stat-label">Students Helped</div>
-                    <div class="stat-description">Through our tutoring program</div>
-                </div>
-            </div>
-            
-            <div class="impact-stories">
-                <h3>Success Stories</h3>
-                <div class="story-grid">
-                    <div class="story-card">
-                        <div class="story-quote">
-                            <i class="fas fa-quote-left"></i>
-                            <p>"The tutoring program helped me improve my math grades from a C to an A. My tutor was patient and really understood how I learn."</p>
-                            <cite>- Sarah, Grade 7 Student</cite>
-                        </div>
-                    </div>
-                    
-                    <div class="story-card">
-                        <div class="story-quote">
-                            <i class="fas fa-quote-left"></i>
-                            <p>"Volunteering with Peer Power Project has taught me leadership skills and the importance of giving back to my community."</p>
-                            <cite>- Michael, High School Volunteer</cite>
-                        </div>
-                    </div>
+                    <div class="stat-description">Through tutoring</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery">
+    <!-- Call to Action -->
+    <section class="cta-section">
         <div class="container">
-            <h2 class="section-title">Gallery</h2>
-            <p class="section-subtitle">Capturing moments of learning, growth, and community impact</p>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">
-                        <i class="fas fa-image"></i>
-                        <p>Tutoring Sessions</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">
-                        <i class="fas fa-image"></i>
-                        <p>Community Events</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">
-                        <i class="fas fa-image"></i>
-                        <p>Book Drive Success</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">
-                        <i class="fas fa-image"></i>
-                        <p>Holiday Card Campaign</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">
-                        <i class="fas fa-image"></i>
-                        <p>Harvard Event</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-placeholder">
-                        <i class="fas fa-image"></i>
-                        <p>Team Meetings</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section id="blog" class="blog">
-        <div class="container">
-            <h2 class="section-title">Blog & Updates</h2>
-            <p class="section-subtitle">Educational content, success stories, and the latest news from our community</p>
-            
-            <div class="blog-grid">
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <div class="blog-placeholder">
-                            <i class="fas fa-newspaper"></i>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">December 10, 2024</span>
-                            <span class="blog-category">Academic Tips</span>
-                        </div>
-                        <h3>Effective Study Strategies for High School Students</h3>
-                        <p>Discover proven techniques to improve your study habits and academic performance...</p>
-                        <a href="#" class="blog-link">Read More</a>
-                    </div>
-                </article>
-                
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <div class="blog-placeholder">
-                            <i class="fas fa-newspaper"></i>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">December 5, 2024</span>
-                            <span class="blog-category">Mental Health</span>
-                        </div>
-                        <h3>Managing Stress During Exam Season</h3>
-                        <p>Practical tips for maintaining mental well-being while preparing for important exams...</p>
-                        <a href="#" class="blog-link">Read More</a>
-                    </div>
-                </article>
-                
-                <article class="blog-card">
-                    <div class="blog-image">
-                        <div class="blog-placeholder">
-                            <i class="fas fa-newspaper"></i>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">November 30, 2024</span>
-                            <span class="blog-category">Community</span>
-                        </div>
-                        <h3>Our Successful Book Drive: Impact Report</h3>
-                        <p>Celebrating the success of our recent book drive and the positive impact on local children...</p>
-                        <a href="#" class="blog-link">Read More</a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <p class="section-subtitle">Get in touch with us to learn more, volunteer, or request tutoring services</p>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p><a href="mailto:thepeerpowerproject@gmail.com">thepeerpowerproject@gmail.com</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-instagram"></i>
-                        <div>
-                            <h4>Instagram</h4>
-                            <p><a href="https://instagram.com/the.peer.power.project" target="_blank">@the.peer.power.project</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h4>Response Time</h4>
-                            <p>We typically respond within 24-48 hours</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <h3>Send Us a Message</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <select id="subject" name="subject">
-                                <option value="">Select a subject</option>
-                                <option value="volunteer">Volunteer Inquiry</option>
-                                <option value="tutoring">Tutoring Request</option>
-                                <option value="general">General Question</option>
-                                <option value="donation">Donation</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
+            <div class="cta-content">
+                <h2>Ready to Make a Difference?</h2>
+                <p>Join our mission to empower students and enrich communities. Whether you want to volunteer, get tutoring, or support our cause, we'd love to hear from you.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Get Involved</a>
+                    <a href="about.html" class="btn btn-outline">Learn More</a>
                 </div>
             </div>
         </div>
@@ -580,21 +179,21 @@
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#programs">What We Do</a></li>
-                        <li><a href="#involve">Get Involved</a></li>
-                        <li><a href="#events">Events</a></li>
-                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programs.html">What We Do</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
                     <h4>Programs</h4>
                     <ul>
-                        <li><a href="#programs">Tutoring Services</a></li>
-                        <li><a href="#blog">Educational Blogs</a></li>
-                        <li><a href="#impact">Community Initiatives</a></li>
-                        <li><a href="#events">Events</a></li>
+                        <li><a href="programs.html">Tutoring Services</a></li>
+                        <li><a href="blog.html">Educational Blogs</a></li>
+                        <li><a href="impact.html">Community Initiatives</a></li>
+                        <li><a href="events.html">Events</a></li>
                     </ul>
                 </div>
                 
