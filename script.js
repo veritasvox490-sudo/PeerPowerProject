@@ -2,40 +2,30 @@
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-}));
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
     });
-});
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }));
+}
 
 // Navbar background change on scroll
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+    if (navbar) {
+        if (window.scrollY > 50) {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        }
     }
 });
 
@@ -59,145 +49,33 @@ document.querySelectorAll('section').forEach(section => {
     observer.observe(section);
 });
 
-// Contact form handling
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(this);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const subject = formData.get('subject');
-        const message = formData.get('message');
-        
-        // Basic validation
-        if (!name || !email || !message) {
-            showNotification('Please fill in all required fields.', 'error');
-            return;
+// Animated Counter for Impact Stats
+function animateCounter(element, target, duration = 2000) {
+    let start = 0;
+    const increment = target / (duration / 16);
+    
+    const timer = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+            element.textContent = target;
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(start);
         }
-        
-        if (!isValidEmail(email)) {
-            showNotification('Please enter a valid email address.', 'error');
-            return;
-        }
-        
-        // Simulate form submission (replace with actual form handling)
-        showNotification('Thank you for your message! We\'ll get back to you soon.', 'success');
-        
-        // Reset form
-        this.reset();
-        
-        // In a real implementation, you would send the data to your server
-        // For now, we'll just log it to the console
-        console.log('Form submitted:', {
-            name,
-            email,
-            subject,
-            message
-        });
-    });
-}
-
-// Email validation function
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-// Notification system
-function showNotification(message, type = 'info') {
-    // Remove existing notifications
-    const existingNotification = document.querySelector('.notification');
-    if (existingNotification) {
-        existingNotification.remove();
-    }
-    
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-        <div class="notification-content">
-            <span class="notification-message">${message}</span>
-            <button class="notification-close">&times;</button>
-        </div>
-    `;
-    
-    // Add styles
-    notification.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#8b5cf6'};
-        color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 8px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        z-index: 10000;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        max-width: 400px;
-    `;
-    
-    // Add to page
-    document.body.appendChild(notification);
-    
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Close button functionality
-    const closeBtn = notification.querySelector('.notification-close');
-    closeBtn.addEventListener('click', () => {
-        notification.style.transform = 'translateX(100%)';
-        setTimeout(() => {
-            notification.remove();
-        }, 300);
-    });
-    
-    // Auto remove after 5 seconds
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.style.transform = 'translateX(100%)';
-            setTimeout(() => {
-                notification.remove();
-            }, 300);
-        }
-    }, 5000);
-}
-
-// Counter animation for impact stats
-function animateCounters() {
-    const counters = document.querySelectorAll('.stat-number');
-    
-    counters.forEach(counter => {
-        const target = parseInt(counter.textContent);
-        const increment = target / 100;
-        let current = 0;
-        
-        const updateCounter = () => {
-            if (current < target) {
-                current += increment;
-                counter.textContent = Math.ceil(current);
-                setTimeout(updateCounter, 20);
-            } else {
-                counter.textContent = target;
-            }
-        };
-        
-        updateCounter();
-    });
+    }, 16);
 }
 
 // Trigger counter animation when impact section is visible
-const impactSection = document.querySelector('#impact');
+const impactSection = document.querySelector('.impact-preview');
 if (impactSection) {
     const impactObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                animateCounters();
+                const counters = entry.target.querySelectorAll('.stat-number');
+                counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    animateCounter(counter, target);
+                });
                 impactObserver.unobserve(entry.target);
             }
         });
@@ -216,50 +94,29 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
 // Add loading animation
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
 
-// Add CSS for loading animation
-const loadingStyle = document.createElement('style');
-loadingStyle.textContent = `
-    body {
-        opacity: 0;
-        transition: opacity 0.5s ease;
-    }
-    
-    body.loaded {
-        opacity: 1;
-    }
-    
-    .notification-content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-    }
-    
-    .notification-close {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 1.5rem;
-        cursor: pointer;
-        padding: 0;
-        line-height: 1;
-    }
-    
-    .notification-close:hover {
-        opacity: 0.8;
-    }
-`;
-document.head.appendChild(loadingStyle);
-
 // Add hover effects for cards
 document.addEventListener('DOMContentLoaded', () => {
     // Add hover effects to all cards
-    const cards = document.querySelectorAll('.program-card, .team-card, .event-card, .blog-card, .story-card, .initiative-card');
+    const cards = document.querySelectorAll('.program-card, .stat-item');
     
     cards.forEach(card => {
         card.addEventListener('mouseenter', () => {
@@ -299,7 +156,7 @@ progressBar.style.cssText = `
     left: 0;
     width: 0%;
     height: 3px;
-    background: linear-gradient(90deg, #8b5cf6, #a855f7);
+    background: linear-gradient(90deg, #5A3E85, #8B5CF6);
     z-index: 10001;
     transition: width 0.1s ease;
 `;
@@ -321,13 +178,13 @@ backToTopBtn.style.cssText = `
     right: 30px;
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #8b5cf6, #a855f7);
+    background: linear-gradient(135deg, #5A3E85, #8B5CF6);
     color: white;
     border: none;
     border-radius: 50%;
     cursor: pointer;
     font-size: 1.2rem;
-    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+    box-shadow: 0 5px 15px rgba(90, 62, 133, 0.3);
     transition: all 0.3s ease;
     opacity: 0;
     visibility: hidden;
@@ -355,12 +212,12 @@ window.addEventListener('scroll', () => {
 
 backToTopBtn.addEventListener('mouseenter', () => {
     backToTopBtn.style.transform = 'translateY(-3px)';
-    backToTopBtn.style.boxShadow = '0 8px 25px rgba(139, 92, 246, 0.4)';
+    backToTopBtn.style.boxShadow = '0 8px 25px rgba(90, 62, 133, 0.4)';
 });
 
 backToTopBtn.addEventListener('mouseleave', () => {
     backToTopBtn.style.transform = 'translateY(0)';
-    backToTopBtn.style.boxShadow = '0 5px 15px rgba(139, 92, 246, 0.3)';
+    backToTopBtn.style.boxShadow = '0 5px 15px rgba(90, 62, 133, 0.3)';
 });
 
 // Add active navigation highlighting
@@ -393,7 +250,7 @@ window.addEventListener('scroll', updateActiveNavLink);
 const activeNavStyle = document.createElement('style');
 activeNavStyle.textContent = `
     .nav-link.active {
-        color: #8b5cf6 !important;
+        color: #5A3E85 !important;
         font-weight: 600;
     }
 `;
@@ -413,3 +270,162 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, 100);
 });
+
+// Add smooth reveal animations for program cards
+const programCards = document.querySelectorAll('.program-card');
+programCards.forEach((card, index) => {
+    card.style.animationDelay = `${index * 0.2}s`;
+    card.classList.add('fade-in');
+    observer.observe(card);
+});
+
+// Add floating animation to hero elements
+const heroElements = document.querySelectorAll('.hero-title, .hero-subtitle, .hero-mission, .hero-buttons');
+heroElements.forEach((element, index) => {
+    element.style.animationDelay = `${index * 0.3}s`;
+});
+
+// Add particle effect to hero background
+function createParticle() {
+    const particle = document.createElement('div');
+    particle.style.cssText = `
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: float 6s infinite linear;
+    `;
+    
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.animationDelay = Math.random() * 6 + 's';
+    particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+    
+    const hero = document.querySelector('.hero-gradient');
+    if (hero) {
+        hero.appendChild(particle);
+        
+        setTimeout(() => {
+            particle.remove();
+        }, 6000);
+    }
+}
+
+// Create particles periodically
+setInterval(createParticle, 300);
+
+// Add CSS for particle animation
+const particleStyle = document.createElement('style');
+particleStyle.textContent = `
+    @keyframes float {
+        0% {
+            transform: translateY(100vh) rotate(0deg);
+            opacity: 0;
+        }
+        10% {
+            opacity: 1;
+        }
+        90% {
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-100px) rotate(360deg);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(particleStyle);
+
+// Add magnetic effect to buttons
+document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('mousemove', (e) => {
+        const rect = button.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        button.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+    });
+    
+    button.addEventListener('mouseleave', () => {
+        button.style.transform = 'translate(0, 0)';
+    });
+});
+
+// Add scroll-triggered animations for statistics
+const statItems = document.querySelectorAll('.stat-item');
+statItems.forEach((item, index) => {
+    item.style.animationDelay = `${index * 0.1}s`;
+    item.classList.add('fade-in');
+    observer.observe(item);
+});
+
+// Add hover effect to social links
+document.querySelectorAll('.social-links a').forEach(link => {
+    link.addEventListener('mouseenter', () => {
+        link.style.transform = 'translateY(-3px) scale(1.1)';
+    });
+    
+    link.addEventListener('mouseleave', () => {
+        link.style.transform = 'translateY(0) scale(1)';
+    });
+});
+
+// Add smooth page transitions
+document.querySelectorAll('a[href$=".html"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+        if (link.hostname === window.location.hostname) {
+            e.preventDefault();
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.3s ease';
+            
+            setTimeout(() => {
+                window.location.href = link.href;
+            }, 300);
+        }
+    });
+});
+
+// Add loading screen
+window.addEventListener('load', () => {
+    const loader = document.createElement('div');
+    loader.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #5A3E85, #8B5CF6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        transition: opacity 0.5s ease;
+    `;
+    
+    loader.innerHTML = `
+        <div style="text-align: center; color: white;">
+            <div style="font-size: 2rem; margin-bottom: 1rem; font-family: 'Playfair Display', serif;">The Peer Power Project</div>
+            <div style="width: 50px; height: 50px; border: 3px solid rgba(255,255,255,0.3); border-top: 3px solid white; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto;"></div>
+        </div>
+    `;
+    
+    document.body.appendChild(loader);
+    
+    setTimeout(() => {
+        loader.style.opacity = '0';
+        setTimeout(() => {
+            loader.remove();
+        }, 500);
+    }, 1000);
+});
+
+// Add CSS for loading spinner
+const spinnerStyle = document.createElement('style');
+spinnerStyle.textContent = `
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+`;
+document.head.appendChild(spinnerStyle);
