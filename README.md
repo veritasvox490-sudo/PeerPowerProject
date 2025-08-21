@@ -1,12 +1,15 @@
 # The Peer Power Project Website
 
-A professional, modern, and mobile-responsive website for The Peer Power Project - a student-led nonprofit organization empowering students through personalized tutoring, educational events, and community initiatives.
+A luxurious, modern, and mobile-responsive website for The Peer Power Project - a student-led nonprofit organization empowering students through personalized tutoring, educational events, and community initiatives.
 
 ## 🌟 Features
 
-- **Modern Design**: Clean, professional layout with soft purples, white, and subtle gradients
+- **Luxurious Design**: Premium aesthetic with elegant typography and sophisticated animations
+- **Modern Typography**: Playfair Display (serif) for headlines, Poppins (sans-serif) for body text
+- **Premium Color Scheme**: Deep purple (#5A3E85), lilac (#E6D9F5), and subtle gradients
 - **Mobile Responsive**: Fully responsive design that works on all devices
 - **Interactive Elements**: Smooth animations, hover effects, and dynamic content
+- **Multi-Page Structure**: Separate pages for different sections
 - **Contact Form**: Functional contact form with validation
 - **Blog Section**: Placeholder for educational content and updates
 - **Event Management**: Upcoming events display with registration links
@@ -18,11 +21,44 @@ A professional, modern, and mobile-responsive website for The Peer Power Project
 
 ```
 personalwebsite/
-├── index.html          # Main HTML file
-├── styles.css          # CSS styles and responsive design
-├── script.js           # JavaScript functionality and interactions
+├── index.html          # Homepage
+├── about.html          # About Us page
+├── team.html           # Our Team page
+├── programs.html       # What We Do page
+├── events.html         # Events page
+├── impact.html         # Impact page
+├── gallery.html        # Gallery page
+├── blog.html           # Blog page
+├── contact.html        # Contact page
+├── style.css           # Main stylesheet
+├── script.js           # JavaScript functionality
 └── README.md           # This file
 ```
+
+## 🎨 Design System
+
+### Colors
+- **Primary Purple**: `#5A3E85` (Deep purple)
+- **Secondary Lilac**: `#E6D9F5` (Light lavender)
+- **Accent Purple**: `#8B5CF6` (Bright purple)
+- **Light Purple**: `#F3F0FF` (Very light purple)
+- **Dark Purple**: `#4C1D95` (Dark purple)
+- **Soft Gray**: `#F8F9FA` (Light gray)
+- **Text Dark**: `#1A1A1A` (Almost black)
+- **Text Light**: `#666666` (Gray text)
+
+### Typography
+- **Headlines**: Playfair Display (serif font)
+- **Body Text**: Poppins (sans-serif font)
+- **Font Weights**: 300, 400, 500, 600, 700
+
+### Animations
+- Smooth fade-in effects on scroll
+- Hover animations for cards and buttons
+- Parallax scrolling effects
+- Particle animations in hero section
+- Magnetic button effects
+- Counter animations for statistics
 
 ## 🚀 Deployment to GitHub Pages
 
@@ -38,7 +74,7 @@ personalwebsite/
 
 2. **Upload Files**:
    - In your new repository, click "uploading an existing file"
-   - Drag and drop all three files (`index.html`, `styles.css`, `script.js`) into the upload area
+   - Drag and drop all HTML files, CSS, and JavaScript files into the upload area
    - Add a commit message like "Initial website upload"
    - Click "Commit changes"
 
@@ -70,15 +106,19 @@ personalwebsite/
 ## 🎨 Customization
 
 ### Colors
-The website uses a purple color scheme that can be easily customized by modifying the CSS variables in `styles.css`:
+The website uses CSS custom properties (variables) that can be easily customized in `style.css`:
 
-- Primary Purple: `#8b5cf6`
-- Secondary Purple: `#a855f7`
-- Dark Purple: `#7c3aed`
-- Light Purple: `#e9d5ff`
+```css
+:root {
+    --primary-purple: #5A3E85;
+    --secondary-lilac: #E6D9F5;
+    --accent-purple: #8B5CF6;
+    /* ... other colors */
+}
+```
 
 ### Content Updates
-- **Team Information**: Replace placeholder content in the team section with actual photos and bios
+- **Team Information**: Replace placeholder content in team.html with actual photos and bios
 - **Events**: Update the events section with real upcoming events
 - **Blog Posts**: Add actual blog content to replace placeholders
 - **Gallery**: Replace placeholder images with real photos from events and activities
@@ -94,10 +134,11 @@ The contact form currently shows a success message but doesn't actually send ema
 ## 📱 Mobile Optimization
 
 The website is fully optimized for mobile devices with:
-- Responsive navigation menu
+- Responsive navigation menu with hamburger icon
 - Touch-friendly buttons and links
 - Optimized typography and spacing
 - Mobile-first design approach
+- Smooth scrolling and animations
 
 ## 🔧 Technical Details
 
@@ -105,7 +146,10 @@ The website is fully optimized for mobile devices with:
 - **CSS3**: Modern styling with Flexbox and Grid
 - **JavaScript ES6+**: Interactive features and animations
 - **Font Awesome**: Icons throughout the site
-- **Google Fonts**: Inter font family for clean typography
+- **Google Fonts**: Playfair Display and Poppins font families
+- **CSS Custom Properties**: For easy theming and customization
+- **Intersection Observer API**: For scroll-triggered animations
+- **CSS Grid & Flexbox**: For responsive layouts
 
 ## 📞 Contact Information
 
@@ -125,6 +169,39 @@ This website is designed for The Peer Power Project. If you're a team member and
 ## 📄 License
 
 This website is created for The Peer Power Project. All rights reserved.
+
+## 🎯 Key Features Implemented
+
+### Homepage (index.html)
+- Hero section with gradient background and particle effects
+- Featured programs showcase
+- Impact statistics with animated counters
+- Call-to-action section
+
+### About Us (about.html)
+- Our story section with elegant layout
+- Mission, vision, and values cards
+- What makes us different section
+
+### Team (team.html)
+- Leadership team showcase
+- Volunteer categories and roles
+- Join our team section with benefits
+
+### Contact (contact.html)
+- Contact information with icons
+- Functional contact form
+- FAQ section
+- Multiple contact methods
+
+### Design Elements
+- Smooth scroll animations
+- Hover effects on all interactive elements
+- Gradient backgrounds and overlays
+- Elegant typography hierarchy
+- Premium button styles with animations
+- Responsive grid layouts
+- Loading animations and transitions
 
 ---
 
