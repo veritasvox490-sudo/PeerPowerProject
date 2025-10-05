@@ -256,12 +256,195 @@ activeNavStyle.textContent = `
 `;
 document.head.appendChild(activeNavStyle);
 
+// Contact Form Functionality
+function initializeContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    if (!contactForm) return;
+
+    // Form validation
+    function validateForm(formData) {
+        const errors = [];
+        
+        if (!formData.get('name') || formData.get('name').trim().length < 2) {
+            errors.push('Please enter a valid name (at least 2 characters)');
+        }
+        
+        if (!formData.get('email') || !isValidEmail(formData.get('email'))) {
+            errors.push('Please enter a valid email address');
+        }
+        
+        if (!formData.get('subject')) {
+            errors.push('Please select a subject');
+        }
+        
+        if (!formData.get('message') || formData.get('message').trim().length < 10) {
+            errors.push('Please enter a message (at least 10 characters)');
+        }
+        
+        return errors;
+    }
+    
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+    
+    function showMessage(message, type = 'success') {
+        // Remove existing messages
+        const existingMessages = document.querySelectorAll('.form-message');
+        existingMessages.forEach(msg => msg.remove());
+        
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `form-message ${type}`;
+        messageDiv.innerHTML = `
+            <div class="message-content">
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+                <span>${message}</span>
+            </div>
+        `;
+        
+        contactForm.parentNode.insertBefore(messageDiv, contactForm);
+        
+        // Auto-remove success messages after 5 seconds
+        if (type === 'success') {
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 5000);
+        }
+    }
+    
+    function showLoading(show) {
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        
+        if (show) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        } else {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+        }
+    }
+    
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(contactForm);
+        const errors = validateForm(formData);
+        
+        if (errors.length > 0) {
+            showMessage(errors.join('<br>'), 'error');
+            return;
+        }
+        
+        showLoading(true);
+        
+        try {
+            // Submit to Formspree
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                // Success
+                showMessage('Thank you for your message! We\'ll get back to you within 24-48 hours.', 'success');
+                contactForm.reset();
+            } else {
+                throw new Error('Form submission failed');
+            }
+            
+        } catch (error) {
+            showMessage('Sorry, there was an error sending your message. Please try again or email us directly at thepeerpowerproject@gmail.com', 'error');
+        } finally {
+            showLoading(false);
+        }
+    });
+    
+    // Real-time validation
+    const inputs = contactForm.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+        input.addEventListener('blur', () => {
+            const formData = new FormData(contactForm);
+            const errors = validateForm(formData);
+            
+            // Remove error styling
+            input.classList.remove('error');
+            
+            // Add error styling if field has error
+            if (errors.length > 0) {
+                const fieldName = input.getAttribute('name');
+                if (fieldName === 'name' && (!formData.get('name') || formData.get('name').trim().length < 2)) {
+                    input.classList.add('error');
+                } else if (fieldName === 'email' && (!formData.get('email') || !isValidEmail(formData.get('email')))) {
+                    input.classList.add('error');
+                } else if (fieldName === 'subject' && !formData.get('subject')) {
+                    input.classList.add('error');
+                } else if (fieldName === 'message' && (!formData.get('message') || formData.get('message').trim().length < 10)) {
+                    input.classList.add('error');
+                }
+            }
+        });
+        
+        input.addEventListener('input', () => {
+            input.classList.remove('error');
+        });
+    });
+}
+
+// Image loading and optimization
+function initializeImages() {
+    const images = document.querySelectorAll('img');
+    
+    images.forEach(img => {
+        // Add loading state
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 0.3s ease';
+        
+        img.addEventListener('load', () => {
+            img.style.opacity = '1';
+        });
+        
+        img.addEventListener('error', () => {
+            img.style.opacity = '0.5';
+            console.warn('Failed to load image:', img.src);
+        });
+        
+        // Lazy loading for better performance
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                        }
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            imageObserver.observe(img);
+        }
+    });
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Add fade-in class to all sections
     document.querySelectorAll('section').forEach(section => {
         section.classList.add('fade-in');
     });
+    
+    // Initialize contact form
+    initializeContactForm();
+    
+    // Initialize images
+    initializeImages();
     
     // Trigger initial animations
     setTimeout(() => {
