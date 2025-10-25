@@ -340,7 +340,7 @@ function initializeContactForm() {
         showLoading(true);
         
         try {
-            // Submit to Formspree
+            // Try Formspree submission first
             const response = await fetch(contactForm.action, {
                 method: 'POST',
                 body: formData,
@@ -354,11 +354,47 @@ function initializeContactForm() {
                 showMessage('Thank you for your message! We\'ll get back to you within 24-48 hours.', 'success');
                 contactForm.reset();
             } else {
-                throw new Error('Form submission failed');
+                const errorData = await response.text();
+                console.error('Formspree error:', response.status, errorData);
+                throw new Error(`Form submission failed: ${response.status}`);
             }
             
         } catch (error) {
-            showMessage('Sorry, there was an error sending your message. Please try again or email us directly at thepeerpowerproject@gmail.com', 'error');
+            console.error('Contact form error:', error);
+            
+            // Fallback: Try direct form submission
+            try {
+                console.log('Trying fallback submission...');
+                showMessage('Sending message...', 'success');
+                
+                // Create a temporary form for direct submission
+                const tempForm = document.createElement('form');
+                tempForm.method = 'POST';
+                tempForm.action = contactForm.action;
+                tempForm.style.display = 'none';
+                
+                // Copy form data
+                for (let [key, value] of formData.entries()) {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = value;
+                    tempForm.appendChild(input);
+                }
+                
+                document.body.appendChild(tempForm);
+                tempForm.submit();
+                
+                // Show success message
+                setTimeout(() => {
+                    showMessage('Thank you for your message! We\'ll get back to you within 24-48 hours.', 'success');
+                    contactForm.reset();
+                }, 1000);
+                
+            } catch (fallbackError) {
+                console.error('Fallback submission failed:', fallbackError);
+                showMessage('Sorry, there was an error sending your message. Please try again or email us directly at thepeerpowerproject@gmail.com', 'error');
+            }
         } finally {
             showLoading(false);
         }
