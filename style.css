@@ -160,7 +160,8 @@ p {
 .nav-logo {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
+    flex-shrink: 0;
 }
 
 .nav-logo .logo-image {
@@ -168,6 +169,7 @@ p {
     width: auto;
     object-fit: contain;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    flex-shrink: 0;
 }
 
 .nav-logo h2 {
@@ -177,6 +179,8 @@ p {
     margin: 0;
     font-weight: 400;
     letter-spacing: -0.01em;
+    white-space: nowrap;
+    line-height: 1;
 }
 
 .nav-menu {
@@ -707,6 +711,7 @@ section {
     
     .nav-logo .logo-image {
         height: 40px;
+        flex-shrink: 0;
     }
     
     .nav-logo h2 {
@@ -790,6 +795,7 @@ section {
     
     .nav-logo .logo-image {
         height: 35px;
+        flex-shrink: 0;
     }
     
     .nav-logo h2 {
