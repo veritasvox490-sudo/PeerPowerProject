@@ -162,6 +162,7 @@ p {
     align-items: center;
     gap: 12px;
     flex-shrink: 0;
+    margin-left: -8px;
 }
 
 .nav-logo .logo-image {
