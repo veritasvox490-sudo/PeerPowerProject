@@ -791,6 +791,15 @@ section {
     .difference-item-centered {
         grid-column: 1;
     }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-card {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+    }
 }
 
 @media (max-width: 1024px) and (min-width: 769px) {
@@ -1242,7 +1251,7 @@ html {
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
 }
 
