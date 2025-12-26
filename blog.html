@@ -3,10 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - The Peer Power Project</title>
+    <title>Blogs - The Peer Power Project</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .blog-post {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(230, 217, 245, 0.3);
+        }
+        .blog-post-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--secondary-lilac);
+        }
+        .blog-post-title {
+            color: var(--primary-purple);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .blog-post-author {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .blog-post-content {
+            color: var(--text-dark);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        .blog-post-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+        .blog-post-content h4 {
+            color: var(--primary-purple);
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .blog-post-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .blog-post-content li {
+            margin-bottom: 0.8rem;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+        .blog-post-content strong {
+            color: var(--primary-purple);
+            font-weight: 600;
+        }
+        .blog-references {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--secondary-lilac);
+        }
+        .blog-references h4 {
+            color: var(--primary-purple);
+            margin-bottom: 1rem;
+        }
+        .blog-references a {
+            color: var(--accent-purple);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+        .blog-references a:hover {
+            color: var(--primary-purple);
+            text-decoration: underline;
+        }
+        .blog-highlight {
+            background: var(--light-purple);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-purple);
+            margin: 2rem 0;
+        }
+        .blog-highlight p {
+            margin: 0;
+            color: var(--text-dark);
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -36,7 +123,7 @@
                     <a href="impact.html" class="nav-link">Impact</a>
                 </li>
                 <li class="nav-item">
-                    <a href="blog.html" class="nav-link active">Blog</a>
+                    <a href="blog.html" class="nav-link active">Blogs</a>
                 </li>
                 <li class="nav-item">
                     <a href="contact.html" class="nav-link">Contact</a>
@@ -53,212 +140,169 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>Educational Blog</h1>
+            <h1>Educational Blogs</h1>
             <p>Written by students, for students. Discover tips, insights, and resources to help you succeed academically and personally.</p>
         </div>
     </section>
 
-    <!-- Featured Posts -->
-    <section class="featured-programs">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Featured Posts</h2>
-                <p class="section-subtitle">Our most popular and impactful articles</p>
-            </div>
-            
-            <div class="programs-grid">
-                <div class="program-card">
-                    <div class="program-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>How to Study Effectively</h3>
-                    <p>Discover proven study techniques and strategies that can help you retain information better and ace your exams. Learn about active recall, spaced repetition, and other effective learning methods.</p>
-                    <div class="blog-meta">
-                        <p><strong>Category:</strong> Study Tips</p>
-                    </div>
-                    <a href="#" class="program-link">Read More</a>
-                </div>
-                
-                <div class="program-card">
-                    <div class="program-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Understanding Internet Safety</h3>
-                    <p>Learn essential internet safety practices to protect yourself online. From social media privacy to recognizing scams, this guide helps you navigate the digital world safely.</p>
-                    <div class="blog-meta">
-                        <p><strong>Category:</strong> Digital Safety</p>
-                    </div>
-                    <a href="#" class="program-link">Read More</a>
-                </div>
-                
-                <div class="program-card">
-                    <div class="program-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>How to Prepare for an Interview</h3>
-                    <p>Master the art of interviewing with our comprehensive guide. Learn how to research companies, answer common questions, and make a great first impression.</p>
-                    <div class="blog-meta">
-                        <p><strong>Category:</strong> Career Prep</p>
-                    </div>
-                    <a href="#" class="program-link">Read More</a>
-                </div>
-                
-                <div class="program-card">
-                    <div class="program-icon">
-                        <i class="fas fa-clipboard-check"></i>
-                    </div>
-                    <h3>How to be Prepared for an Upcoming Evaluation</h3>
-                    <p>Get ready for tests, exams, and evaluations with our preparation strategies. Learn how to study effectively, manage test anxiety, and perform your best.</p>
-                    <div class="blog-meta">
-                        <p><strong>Category:</strong> Study Tips</p>
-                    </div>
-                    <a href="#" class="program-link">Read More</a>
-                </div>
-                
-                <div class="program-card">
-                    <div class="program-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3>How to Conduct Effective Research</h3>
-                    <p>Master the skills of academic and professional research. Learn how to find reliable sources, organize information, and present your findings effectively.</p>
-                    <div class="blog-meta">
-                        <p><strong>Category:</strong> Academic Skills</p>
-                    </div>
-                    <a href="#" class="program-link">Read More</a>
-                </div>
-                
-                <div class="program-card">
-                    <div class="program-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>How to Choose What Extracurriculars Fit You</h3>
-                    <p>Discover how to select extracurricular activities that align with your interests, goals, and schedule. Find the perfect balance between academics and personal growth.</p>
-                    <div class="blog-meta">
-                        <p><strong>Category:</strong> Personal Development</p>
-                    </div>
-                    <a href="#" class="program-link">Read More</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Recent Posts -->
+    <!-- Blog Posts -->
     <section class="about-story">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Recent Posts</h2>
-                <p class="section-subtitle">Latest insights and advice from our student writers</p>
-            </div>
-            
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Time Management for High School Students</h3>
-                    <p>Learn how to balance academics, extracurriculars, and personal time effectively. Practical tips for creating schedules that work for you.</p>
-                    <div class="blog-meta">
-                        <p><strong>Date:</strong> February 20, 2024</p>
-                        <p><strong>Category:</strong> Productivity</p>
-                    </div>
+            <!-- Blog Post 1 -->
+            <article class="blog-post">
+                <div class="blog-post-header">
+                    <h2 class="blog-post-title">How to Study Effectively</h2>
+                    <p class="blog-post-author"><strong>Author:</strong> S. Du</p>
                 </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Building Meaningful Friendships</h3>
-                    <p>High school is a time for growth and connection. Discover how to build and maintain healthy friendships that support your personal development.</p>
-                    <div class="blog-meta">
-                        <p><strong>Date:</strong> February 15, 2024</p>
-                        <p><strong>Category:</strong> Social Skills</p>
-                    </div>
+                <div class="blog-post-content">
+                    <p>The Peer Power Project focuses on students from JK to grade 8. Building strong study habits and establishing consistent routines is crucial. For younger students, incorporating fun and interactive learning methods along with brief, focused study sessions can be highly effective. In middle school, fostering structured study times, teaching time management, and using active learning techniques will help set a solid foundation for high school and future academic success.</p>
+                    
+                    <p>Here are some strategies that can help students, particularly those in the middle school age group, study more effectively:</p>
+                    
+                    <h4>Do not cram!</h4>
+                    <p>For middle school students, it is important to avoid cramming all your work into one day by establishing a regular study routine and spreading out assignments or test preparations over several days. This approach not only reduces stress but also enhances understanding of the material.</p>
+                    
+                    <h4>Planning</h4>
+                    <p>Having a plan is crucial for effective studying. Using an agenda to track all your deadlines and assignments, and schedule dedicated study times into your calendar. This helps ensure you stay organized, manage your time effectively, and meet your academic goals.</p>
+                    
+                    <h4>Eliminating distractions</h4>
+                    <p>Eliminating distractions by keeping your phone and other electronics out of sight can significantly improve focus and productivity during study sessions.</p>
+                    
+                    <h4>Learning Styles</h4>
+                    <p>Everyone has unique learning styles, so it's important to use different methods to match individual preferences (These are only some of the different learning styles):</p>
+                    <ul>
+                        <li><strong>Visual Learners:</strong> Benefit from diagrams, charts, and visual aids.</li>
+                        <li><strong>Auditory Learners:</strong> Gain from listening to recordings or reading aloud.</li>
+                        <li><strong>Kinesthetic Learners:</strong> Engage best with hands-on activities, like building models or using physical objects.</li>
+                    </ul>
+                    <p>If you identify with one of these styles, incorporating methods that align with your learning preferences can enhance your study effectiveness.</p>
+                    
+                    <h4>Practice testing</h4>
+                    <p>This involves taking practice tests or quizzes on the material you need to learn. Testing yourself regularly helps you increase your understanding, identify areas that need improvement, and enhance your ability to recall information under exam conditions. You can create practice tests in the same format as the actual test you're preparing for, such as multiple-choice, short answer, or essay questions, to better simulate the exam experience and improve your test-taking skills.</p>
+                    
+                    <p>By implementing these strategies, students can build effective study habits that improve academic performance and prepare them for future challenges. While these are some common learning strategies, they are not the only ones. It's important to explore various techniques and use those that best fit your individual learning style for a more personalized and effective approach to studying.</p>
                 </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <h3>Reading Strategies for Better Comprehension</h3>
-                    <p>Improve your reading skills with proven strategies that help you understand and retain information from textbooks and literature.</p>
-                    <div class="blog-meta">
-                        <p><strong>Date:</strong> February 10, 2024</p>
-                        <p><strong>Category:</strong> Study Tips</p>
-                    </div>
+                <div class="blog-references">
+                    <h4>References:</h4>
+                    <a href="https://summer.harvard.edu/blog/top-10-study-tips-to-study-like-a-harvard-student/" target="_blank">https://summer.harvard.edu/blog/top-10-study-tips-to-study-like-a-harvard-student/</a>
+                    <a href="https://www.wizeprep.com/blog/study-tips-for-success" target="_blank">https://www.wizeprep.com/blog/study-tips-for-success</a>
+                    <a href="https://files.eric.ed.gov/fulltext/EJ1210888.pdf" target="_blank">https://files.eric.ed.gov/fulltext/EJ1210888.pdf</a>
                 </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3>Finding Your Passion</h3>
-                    <p>Explore different interests and discover what truly excites you. Tips for identifying your passions and pursuing them in high school and beyond.</p>
-                    <div class="blog-meta">
-                        <p><strong>Date:</strong> February 5, 2024</p>
-                        <p><strong>Category:</strong> Personal Growth</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            </article>
 
-    <!-- Blog Categories -->
-    <section class="values-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Blog Categories</h2>
-                <p class="section-subtitle">Find content that matches your interests and needs</p>
-            </div>
-            
-            <div class="difference-grid">
-                <div class="difference-item">
-                    <div class="difference-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Study Tips</h3>
-                    <p>Effective learning strategies, study methods, and academic preparation techniques.</p>
+            <!-- Blog Post 2 -->
+            <article class="blog-post">
+                <div class="blog-post-header">
+                    <h2 class="blog-post-title">Understanding Internet Safety</h2>
+                    <p class="blog-post-author"><strong>Author:</strong> K. Ho</p>
                 </div>
-                
-                <div class="difference-item">
-                    <div class="difference-icon">
-                        <i class="fas fa-shield-alt"></i>
+                <div class="blog-post-content">
+                    <p>The Peer Power Project helps aid personal growth in academic studies through online platforms and one-on-one tutoring sessions. The internet is a continually evolving creation meant to help people interact, work, and communicate effectively in different locations. Unfortunately, there have been many cases where the internet has been used in ways that unintentionally or intentionally have affected other people's mental and physical characteristics negatively. In order to use the internet to its full potential, it's important to be aware of the following:</p>
+                    
+                    <h4>Guarding personal information</h4>
+                    <div class="blog-highlight">
+                        <p>Never give away personal information!</p>
                     </div>
-                    <h3>Digital Safety</h3>
-                    <p>Internet safety, online privacy, and navigating the digital world securely.</p>
+                    <p>Whether it's for a new account or someone's request, it's important to keep personal information private. Some websites or application forms ask for personal details such as name, age, or address. It's important to double check the safety and legitimacy of the website before filling out any forms. When oblivious or uncareful, information can end up in unwanted peoples hands, in which people can steal your identities and personal information.</p>
+                    
+                    <h4>Permanency of internet information</h4>
+                    <p>Before posting or sending a message through social media platforms or the internet in general, make sure you double check to see if this information is appropriate to be shared to a wide audience. It is easy for your information online to be unknowingly shared to others. Clearing history or deleting posts does not mean the information has been erased; information could still be retrieved.</p>
+                    
+                    <h4>Be careful of who you communicate with</h4>
+                    <p>Anonymity on the internet can be dangerous. Although websites do their best to make sure users are there for trustworth reasons, it is impossible to eliminate all users who aren't. Before interacting with someone online, it's important to think about its safety and nature behind the interactions. These, along with many other safety rules, can help people use the internet to its fullest without being negatively affected. Due to the fact that Peer Power Project is an online organization, it is one of our top priorities to maintain transparency and good relationships within our team and through parents and participants.</p>
                 </div>
-                
-                <div class="difference-item">
-                    <div class="difference-icon">
-                        <i class="fas fa-handshake"></i>
+                <div class="blog-references">
+                    <h4>Information inspired by:</h4>
+                    <p>create&learn</p>
+                </div>
+            </article>
+
+            <!-- Blog Post 3 -->
+            <article class="blog-post">
+                <div class="blog-post-header">
+                    <h2 class="blog-post-title">How to Prepare for an Interview</h2>
+                    <p class="blog-post-author"><strong>Author:</strong> The Peer Power Project</p>
+                </div>
+                <div class="blog-post-content">
+                    <p>Interviews are an essential part of hiring and recruiting processes, it provides a platform for employers or higher level individuals to evaluate and assess the values, talents and abilities of an individual. In many organizations, companies, and clubs, interviews can be the biggest deciding factor in whether you land the position or not. Learning how to master interviews is vital as they will most likely appear at every position you want. Peer Power Project is also an organization among others that require interviews for volunteers in the application process. In order to be confident and ace any interviews, the following steps will help:</p>
+                    
+                    <h4>Get to know the Company/Organization</h4>
+                    <ul>
+                        <li>Understand what the company/organization is looking for, what their morals, mission and values are</li>
+                        <li>Be familiar with what they do what services they offer, what items they sell etc</li>
+                        <li>Research the "area" of the company/organization, get to know the field and latest facts/statistics</li>
+                    </ul>
+                    
+                    <h4>Understand the Job Role</h4>
+                    <ul>
+                        <li>Read over the job description carefully, know the responsibilities, skills and qualifications they are looking for</li>
+                        <li>Relate your skills to the job and provide examples from your knowledge or experiences to how it would help you for the position/job.</li>
+                    </ul>
+                    
+                    <h4>Prepare for Common Questions</h4>
+                    <ul>
+                        <li>Practice answers to common questions that interviewers ask</li>
+                        <li>Predict of what the interviewers might ask and prepare possible answers</li>
+                    </ul>
+                    
+                    <h4>Practice speaking</h4>
+                    <ul>
+                        <li>Make sure to practice in front of friends and family to make sure you are answering and talking confidently</li>
+                        <li>Make sure to change the tone of your voice and use hand gestures</li>
+                    </ul>
+                    
+                    <h4>Don't panic</h4>
+                    <p>Remember to stay calm and be yourself. Interviews are a two-way conversation where you can also learn about the organization and determine if it's the right fit for you.</p>
+                </div>
+            </article>
+
+            <!-- Blog Post 4 -->
+            <article class="blog-post">
+                <div class="blog-post-header">
+                    <h2 class="blog-post-title">How To Be Prepared For An Upcoming Evaluation!</h2>
+                    <p class="blog-post-author"><strong>Author:</strong> The Peer Power Project</p>
+                </div>
+                <div class="blog-post-content">
+                    <p>Are you a student who wants to be your best in academics, or are you a student who tends to be nervous before an evaluation? Well, some tips that can help you to make a significant positive difference on your struggles and to improve on includes studying beforehand, using an effective study strategy, and to have a positive attitude towards your classes.</p>
+                    
+                    <h4>Study BEFOREHAND!</h4>
+                    <p>Firstly, to be less nervous and instead, more prepared about your upcoming evaluation, it is best to study beforehand. Which means, you should study a couple of days early before the evaluation date! By doing so, you can create an effective plan to incorporate to your evaluation given rubric. For example, to study for a geography test, you can choose to study five days before your test date. Therefore, you would not have to study a lot of content in a short-span of days. Instead, you can just study bit-by-bit everyday! Making a checklist would be perfect in this scenario considering you are planning to study ahead of a long-span of time. You should check off the topics that you have reviewed everyday based on your checklist to keep track, in order to be more organized.</p>
+                    
+                    <h4>Use an effective STUDY STRATEGY!</h4>
+                    <p>Besides sticking to a checklist plan, you could explore several effective study strategies! They include learning how to properly organize your notes while taking them down, the Active Recall method, the Pomodoro Method, the Spaced Repetition method, Mind Mapping, the Feynman Technique, the Chunking Information method, and more! These are just some of the many effective strategies you could explore and use! If one method does not apply to you the best, try another one! But always remember, one bad mark result does not define your self worth, YOU MATTER!</p>
+                    
+                    <h4>Have a POSITIVE ATTITUDE towards your classes!</h4>
+                    <p>Furthermore, having a positive attitude towards your classes changes everything you process when you study! Having this mindset can change an individual's value for themselves. Generally speaking, thinking and being positive can make you have a lot of confidence! So, apply this positive attitude towards your academic work, even if you have doubts! By doing so, you will have a huge confidence boost in your work. If you have negative feelings towards your academic work, you would not have the best, healthiest ability as you can be.</p>
+                </div>
+            </article>
+
+            <!-- Blog Post 5 -->
+            <article class="blog-post">
+                <div class="blog-post-header">
+                    <h2 class="blog-post-title">How to Choose What Extracurriculars Are Fit For You</h2>
+                    <p class="blog-post-author"><strong>Author:</strong> The Peer Power Project</p>
+                </div>
+                <div class="blog-post-content">
+                    <p>Applying to universities/colleges can be difficult and lots of work, which is normal for every student! However, there is one huge factor, besides marks that determines your acceptance to your top college/university choices, EXTRACURRICULARS! So how do you choose which extracurriculars fit you? Read the guide below ⬇️</p>
+                    
+                    <h4>What interests you?</h4>
+                    <p>Although it is repeatedly said that your interests spark success, it is 100% true. Thinking about succeeding in a specific activity can drive your hard work, and I know from personal experience! Setting goals with yourself in an extracurricular, such as winning a medal before retiring from a sport can also guide your success and can be helpful as well.</p>
+                    
+                    <h4>How much time do you have to commit throughout the week?</h4>
+                    <p>Committed extracurriculars, such as competitive sports or activities can be extremely helpful in boosting your college application. Especially exceeding in your extracurriculars, such as receiving awards or becoming a national level athlete. However for many, this is an unrealistic expectation as many individuals who excel to a national level started when they were extremely young and devote around 10 hours throughout their week for this. But PLEASE do not make this the reason why you don't start an extracurricular. Even though you don't have a lot of time to commit, it is extremely helpful when applying to school when they see that you are all-rounded and not just an academic achiever.</p>
+                    
+                    <h4>Budget?</h4>
+                    <p>Many students don't want to commit to expensive extracurriculars such as sports due to limits on their budget. However, this is not a large barrier and you can still find great extracurriculars that don't cost a lot. For example, volunteering roles, leadership roles, school club participation, and even real life work! These are simple and common extracurriculars that many students have, however to stand out from other qualified students, committing to one specific extracurricular will interest universities! It's better to have created a large impact on one cause instead of stepping into 10 different extracurriculars that you didn't do a lot for.</p>
+                    
+                    <div class="blog-highlight">
+                        <p><strong>One GREAT and FREE volunteering opportunity is our non-profit, The Peer Power Project!</strong> It's online and available to all students. We are accepting volunteer applications 24/7 throughout the whole year! All it takes is a dm and we'll respond within hours! Our instagram is <a href="https://instagram.com/the.peer.power.project" target="_blank" style="color: var(--accent-purple);">@the.peer.power.project</a></p>
                     </div>
-                    <h3>Career Prep</h3>
-                    <p>Interview preparation, professional skills, and career development guidance.</p>
-                </div>
-                
-                <div class="difference-item">
-                    <div class="difference-icon">
-                        <i class="fas fa-search"></i>
+                    
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <a href="contact.html" class="btn btn-primary">Apply Today!</a>
                     </div>
-                    <h3>Academic Skills</h3>
-                    <p>Research methods, critical thinking, and academic writing techniques.</p>
                 </div>
-                
-                <div class="difference-item">
-                    <div class="difference-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>Personal Development</h3>
-                    <p>Extracurricular selection, goal setting, and personal growth strategies.</p>
-                </div>
-                
-                <div class="difference-item">
-                    <div class="difference-icon">
-                        <i class="fas fa-clipboard-check"></i>
-                    </div>
-                    <h3>Evaluation Prep</h3>
-                    <p>Test preparation, evaluation strategies, and performance optimization.</p>
-                </div>
-            </div>
+            </article>
         </div>
     </section>
 
@@ -266,8 +310,8 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Want to Write for Our Blog?</h2>
-                <p>Are you a student with insights to share? We're always looking for new writers to contribute to our blog. Share your experiences and help other students succeed!</p>
+                <h2>Want to Write for Our Blogs?</h2>
+                <p>Are you a student with insights to share? We're always looking for new writers to contribute to our blogs. Share your experiences and help other students succeed!</p>
                 <div class="cta-buttons">
                     <a href="contact.html" class="btn btn-primary">Submit an Article</a>
                     <a href="contact.html" class="btn btn-outline">Subscribe to Updates</a>
@@ -299,7 +343,7 @@
                         <li><a href="programs.html">What We Do</a></li>
                         <li><a href="team.html">Our Team</a></li>
                         <li><a href="events.html">Events</a></li>
-                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="blog.html">Blogs</a></li>
                     </ul>
                 </div>
                 
