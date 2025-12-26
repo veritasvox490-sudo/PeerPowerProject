@@ -997,11 +997,12 @@ html {
 .story-img {
     width: 400px;
     height: 300px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(90, 62, 133, 0.3);
     transition: all 0.3s ease;
-    background: linear-gradient(135deg, var(--primary-purple), var(--accent-purple));
+    background: var(--white);
+    padding: 20px;
 }
 
 .story-img:hover {
